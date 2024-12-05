@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 import { initialLearnersArr } from "./data";
+import Learner from "../components/Learner";
 
-function App() {
+export default function App() {
   const [learners, setLearners] = useState(initialLearnersArr);
   return (
     <>
@@ -13,26 +14,3 @@ function App() {
     </>
   );
 }
-
-function Learner({ learner }) {
-  return (
-    <>
-      <h2>{learner.name} </h2>
-      <h4> Bio: {learner.bio} </h4>
-      <Score scores={learner.scores} />
-    </>
-  );
-}
-
-function Score({ scores }) {
-  return (
-      <ul>
-        {scores.map((score) => (
-          <li>
-            Date: {score.date} | Score: {score.score}
-          </li>
-        ))}
-      </ul>
-  );
-}
-export default App;
